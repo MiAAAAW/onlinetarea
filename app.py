@@ -1,17 +1,27 @@
 import streamlit as st
-import Pages.Cliente.Cadastro as PageCadastro  # Função de cadastrar cliente, com todas as inputs e labels
-import Pages.Cliente.Listagem as PageListar  # Função de listar e alterar clientes
+import Pages.Cliente.Registro as PageRegistro
+import Pages.Cliente.Listado as PageListado
+
+# Aplicar estilos CSS para ajustar el ancho
+st.markdown("""
+    <style>
+        .stApp {
+            max-width: 100% !important;
+            padding: 2rem !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-st.title('Sistema de clientes :busts_in_silhouette:')  # Título da page
-st.sidebar.title(':page_facing_up: Menu')  # Sidebar
-sidebarOptions = st.sidebar.selectbox('Cliente', ['Cadastro', 'Consultar/Alterar'])  # Opções da sidebar - Menu
+st.title('Sistema de clientes :busts_in_silhouette:')
+st.sidebar.title(':page_facing_up: Menú')
+opciones_sidebar = st.sidebar.selectbox('Cliente', ['Registro', 'Consultar/Modificar'])
 
-if sidebarOptions == 'Cadastro':
-    st.experimental_set_query_params()  # Zerando o set de parâmetro ID para rodar o cadastro sem o modo "Atualizar"
-    PageCadastro.Cadastrar()
+if opciones_sidebar == 'Registro':
+    st.query_params.clear()
+    PageRegistro.Registrar()
 
-if sidebarOptions == 'Consultar/Alterar':
-    PageListar.Listagem()
+if opciones_sidebar == 'Consultar/Modificar':
+    PageListado.Listado()

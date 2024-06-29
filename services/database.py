@@ -1,10 +1,10 @@
 import mysql.connector
 from os import environ
 
-HOST = environ.get('HOST', 'escreva-o-host-aqui')
-PASSWD = environ.get('PASSWD', 'escreva-o-passwd-aqui')
-USER = environ.get('USER', 'escreva-o-user-aqui')
-DATABASE = environ.get('DATABASE', 'escreva-o-db-name-aqui')
+HOST = environ.get('HOST', 'localhost')
+PASSWD = environ.get('PASSWD', '')
+USER = environ.get('USER', 'root')
+DATABASE = environ.get('DATABASE', 'tarea')
 
 bdConnection = mysql.connector.connect(
     host=f'{HOST}',

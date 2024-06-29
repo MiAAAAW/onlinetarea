@@ -1,37 +1,34 @@
 from services import database as db
-from Controller.models.Cliente import Cliente as cliente
+from Controller.models.Cliente import Cliente
 
 def Incluir(cliente):
-    db.cursor.execute(f'INSERT INTO clientes (nomeCliente, idadeCliente, profissaoCliente)'
-                      f'VALUES ("{cliente.nome}", {cliente.idade}, "{cliente.profissao}")')
+    db.cursor.execute(f'INSERT INTO clientes (nombreCliente, edadCliente, profesionCliente, fotoCliente) VALUES ("{cliente.nombre}", {cliente.edad}, "{cliente.profesion}", "{cliente.foto}")')
     db.bdConnection.commit()
 
-def SelecionarClientes():
+def SeleccionarClientes():
     selectCommand = f'SELECT * FROM clientes'
     db.cursor.execute(selectCommand)
-    clienteList = []
+    listaClientes = []
     for row in db.cursor.fetchall():
-        clienteList.append(cliente(row[0], row[1], row[2], row[3]))
+        listaClientes.append(Cliente(row[0], row[1], row[2], row[3], row[4]))
 
-    return clienteList
+    return listaClientes
 
-def Excluir(id):
-    deleteCommand = f'DELETE FROM clientes WHERE idClientes = {id}'
+def Eliminar(id):
+    deleteCommand = f'DELETE FROM clientes WHERE idCliente = {id}'
     db.cursor.execute(deleteCommand)
     db.bdConnection.commit()
 
-def Alterar(cliente):
-    updateCommand = f'UPDATE clientes SET nomeCliente = "{cliente.nome}", idadeCliente = {cliente.idade},' \
-                    f' profissaoCliente = "{cliente.profissao}"' \
-                    f'WHERE idClientes = {cliente.id}'
+def Modificar(cliente):
+    updateCommand = f'UPDATE clientes SET nombreCliente = "{cliente.nombre}", edadCliente = {cliente.edad}, profesionCliente = "{cliente.profesion}", fotoCliente = "{cliente.foto}" WHERE idCliente = {cliente.id}'
     db.cursor.execute(updateCommand)
     db.bdConnection.commit()
 
-def SelecionarID(id):
-    selectId = f'SELECT * FROM clientes WHERE idClientes = {id}'
+def SeleccionarPorID(id):
+    selectId = f'SELECT * FROM clientes WHERE idCliente = {id}'
     db.cursor.execute(selectId)
-    idList = []
+    listaId = []
     for row in db.cursor.fetchall():
-        idList.append(cliente(row[0], row[1], row[2], row[3]))
+        listaId.append(Cliente(row[0], row[1], row[2], row[3], row[4]))
 
-    return idList[0]  #Retornando a lista apenas com o valor necessário, que é o ID, da coluna 0 na database
+    return listaId[0]  # Retornando solo el valor necesario, que es el ID, de la columna 0 en la base de datos

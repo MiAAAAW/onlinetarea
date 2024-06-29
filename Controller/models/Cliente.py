@@ -1,6 +1,7 @@
 class Cliente:
-    def __init__(self, id, nome, idade, profissao):
+    def __init__(self, id, nombre, edad, profesion, foto):
         self.id = id
-        self.nome = nome
-        self.idade = idade
-        self.profissao = profissao
+        self.nombre = nombre
+        self.edad = edad
+        self.profesion = profesion
+        self.foto = foto

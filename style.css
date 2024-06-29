@@ -1,42 +1,64 @@
+/* Asegurarse de que el contenedor principal ocupe todo el ancho */
+.stApp {
+    max-width: 100% !important;
+    padding: 2rem !important;
+}
+
+.block-container {
+    max-width: 100% !important;
+}
+
+.css-1d391kg {
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.css-18e3th9 {
+    flex: 1;
+}
+
 .stMarkdown {
     text-align: center;
+    margin-left: 20px;  /* Ajustar márgenes */
+    margin-right: 20px; /* Ajustar márgenes */
 }
 
 #sistema-de-clientes {
     font-weight: bold;
+    text-align: center; /* Centrar el título */
 }
 
-.css-1q8dd3e {
-    background: transparent;
-    box-sizing: border-box;
-    border-radius: 0.6rem;
-    align-self: center;
-    font-size: 17px;
-    font-weight: 400 bold;
-    text-align: center;
-    color: aliceblue;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    cursor: pointer;
-    border: 2px solid aqua;
-    width: 60px;
+button {
+    width: 100px;
     height: 30px;
     font-size: 15px;
-}
-
-.css-1q8dd3e:hover {
-    color: aqua;
-    box-shadow: 3px 3px 20px #03e9f4,
-    3px 2px 20px #03e9f4;
-    border: 2px solid aqua;
-}
-
-#sistema-de-clientes {
-    background-color: #000;
-    border: 1px solid #dbd56e;
-    color: #fff;
-    border-radius: 12px;
 }
 
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 header {visibility: hidden;}
+
+/* Estilo para las imágenes */
+.stImage > img {
+    border-radius: 50%;
+    width: 100px;  /* Ajustar el tamaño de la imagen */
+    height: 100px;  /* Ajustar el tamaño de la imagen */
+    object-fit: cover;
+}
+
+/* Centrar contenido en las columnas */
+.stColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajustar el espacio entre botones */
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Alinear los botones en columna */
+    gap: 0.5rem; /* Ajustar el espacio entre botones */
+}
